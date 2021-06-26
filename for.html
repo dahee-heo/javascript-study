@@ -1,18 +1,36 @@
 <script>
-for (let index1 = 0; index1 < 3; index1++) {
+// for (let index1 = 0; index1 < 3; index1++) {
+//   console.log(index1);
+// }
+
+// for (let index2 = 1; index2 <= 3; index2++) {
+//   console.log(index2);
+//   break;
+// }
+
+// for (let index3 = 1; index3 <= 3; index3 += 1) {
+//   if (index3 === 2) {
+//     continue;
+//   }
+//   console.log(index3);
+// }
+
+for (let index1 = 1; index1 <= 10; index1+=2) {
   console.log(index1);
 }
 
-for (let index2 = 1; index2 <= 3; index2++) {
-  console.log(index2);
-  break;
+for (let index1 = 2; index1 <= 10; index1+=2) {
+  console.log(index1);
 }
 
-for (let index3 = 1; index3 <= 3; index3 += 1) {
-  if (index3 === 2) {
-    continue;
+for (let index6 = 1; index6 <= 10; index6 += 1) {
+  if (index6 % 2 === 1) {
+    console.log(index6 + ' is odd');
+  } else {
+    console.log(index6 + ' is even');
   }
-  console.log(index3);
+  const oddEven = index6 % 2 ? 'odd' : 'even';
+  console.log(index6 + ' is '+ oddEven);
 }
 
 
