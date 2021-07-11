@@ -1,0 +1,18 @@
+<script>
+const users = [];
+const usersCreate = function(user){
+  users.push(user);
+  return users;
+}
+const usersRead = function(){
+  return users;
+}
+const usersDelete = function(index){
+  users.splice(index,1);
+  return users;
+}
+const usersUpdate = function(index,user){
+  users[index] = user;
+  return users;
+}
+</script>
