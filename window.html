@@ -1,0 +1,18 @@
+<script>
+// var v1 = 'a';
+let v1 = 'c';
+v2 = 'b';
+const condition1 = v1 === window.v1;
+const condition2 = v2 === window.v2;
+window.v3 = 'c';
+
+function f1() {}
+const condition3 = f1 === window.f1;
+
+if (window.confirm('진행 하시겠습니까?')) {
+  window.console.log('진행');
+} else {
+  window.alert('멈춤');
+}
+
+</script>
