@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <script src="./membersForm.js"></script>
+  <script defer src="./membersForm.js"></script>
 </head>
 <body>
   <form method="get" onsubmit="return membersSubmit(this);">
@@ -12,6 +12,7 @@
     <input type="hidden" name="input-hidden" value="숨겨진값">
     <input type="submit" value="전송">
   </form>
+  <pre id="tag-pre"></pre>
   
 </body>
 </html>
