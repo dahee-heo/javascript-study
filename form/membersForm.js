@@ -37,7 +37,7 @@ const membersUpdate = function(index, member) {
 const membersSubmit = function(form) {
   const inputTextObject = form['input-text'];
   try {
-    const evalReturn = JSON.parse(inputTextObject.value);
+    const evalReturn = eval(inputTextObject.value);
     console.log(evalReturn);
   } catch(error) {
     console.error(error);
