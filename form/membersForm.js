@@ -1,3 +1,19 @@
+const url = new URL(window.location);
+const queryString = url.searchParams;
+const nameText = queryString.get('input-text');
+const inputHiddens = queryString.getAll('input-hidden');
+const inputHidden = inputHiddens[0];
+
+// const inputTextObjects = document.getElementsByName('input-text');
+// const inputTextObject = inputTextObjects[0];
+
+const inputTextObject = document.getElementsByName('input-text')[0];
+
+
+inputTextObject.value = nameText;
+
+inputTextObject.focus();
+inputTextObject.blur();
 
 // const members = [];
 const membersGet = sessionStorage.getItem('members');
@@ -42,8 +58,9 @@ const membersUpdate = function(index, member) {
   return members;
 };
 
-const membersSubmit = function(form) {
-  const inputTextObject = form['input-text'];
+const membersSubmit = function(f) {
+  const inputTextObject = f['input-text'];
+  inputTextObject.value = 'abcd'
   try {
     const evalReturn = eval(inputTextObject.value);
     console.log(evalReturn);
