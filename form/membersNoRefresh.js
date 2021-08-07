@@ -33,8 +33,9 @@ const membersCreate = function(member) {
 const membersRead = function() {
   const tagPre = document.getElementById('tag-pre');
   tagPre.innerHTML = '';
-  for (let index in members) {
+  for (let index in members) {  
     tagPre.innerHTML += '<input type="text" name="members-name" value="' + members[index] + '">';
+    tagPre.innerHTML += '<button onclick="membersUpdate(' + index + ')">Update</button>';
     tagPre.innerHTML += '<button onclick="membersDelete(' + index + ')">Delete</button>';
     tagPre.innerHTML += '\n';
   }
@@ -48,14 +49,16 @@ const membersDelete = function(index) {
   members.splice(index, 1);
   membersSet();
  
-  return members;
+  return membersRead();
 };
 
-const membersUpdate = function(index, member) {
-  members[index] = member;
+const membersUpdate = function(index) {
+  const name = document.getElementsByName('members-name')[index].value;
+  members[index] = name;
   membersSet();
-  return members;
+  return membersRead();
 };
+
 
 const membersSubmit = function(f) {
   const inputTextObject = f['input-text'];
