@@ -24,11 +24,15 @@ const membersSet = function(){
   const membersSet = JSON.stringify(members);
   sessionStorage.setItem('members', membersSet);
 };
-const membersCreate = function(member) {
-  members.push(member);
+
+const membersCreate = function(form) {
+  const inputTextObject = form['input-text'];
+  members.push(inputTextObject.value);
   membersSet();
-  return members;
+  inputTextObject.value = '';
+  return membersRead();
 };
+
 
 const membersRead = function() {
   const tagPre = document.getElementById('tag-pre');
@@ -58,20 +62,6 @@ const membersUpdate = function(index) {
   membersSet();
   return membersRead();
 };
-
-
-const membersSubmit = function(f) {
-  const inputTextObject = f['input-text'];
-  // inputTextObject.value = 'abcd'
-  try {
-    const evalReturn = eval(inputTextObject.value);
-    console.log(evalReturn);
-  } catch(error) {
-    console.error(error);
-    alert(error);
-    return false;
-  }
-}
 
 
 membersRead();
