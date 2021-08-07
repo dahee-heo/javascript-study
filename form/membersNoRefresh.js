@@ -31,16 +31,15 @@ const membersCreate = function(member) {
 };
 
 const membersRead = function() {
-  // for (let index in members) {
-  //   document.writeln(members[index]);
-  // }
   const tagPre = document.getElementById('tag-pre');
+  tagPre.innerHTML = '';
   for (let index in members) {
-    // let innerHTML = tagPre.innerHTML + members[index];
-    // innerHTML += '\n';
-    // tagPre.innerHTML = innerHTML;
-    tagPre.innerHTML += members[index] + '\n';
+    tagPre.innerHTML += '<input type="text" name="members-name" value="' + members[index] + '">';
+    tagPre.innerHTML += '<button onclick="membersDelete(' + index + ')">Delete</button>';
+    tagPre.innerHTML += '\n';
   }
+  console.log('Readed', members);
+
 
   return members;
 };
