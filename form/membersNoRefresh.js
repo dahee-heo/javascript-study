@@ -49,9 +49,13 @@ const membersRead = function() {
     tagDivParent.appendChild(newDivChild);
 
     const membersNameObject = document.getElementsByName('members-name')[index];
+    const membersAgeObject = document.getElementsByName('members-age')[index];
     const membersUpdateObject = document.getElementsByName('members-update')[index];
     const membersDeleteObject = document.getElementsByName('members-delete')[index];
-    membersNameObject.value = members[index];
+    // membersNameObject.value = members[index];
+    membersNameObject.value = members[index].name;
+    membersAgeObject.value = members[index].age;
+
     membersUpdateObject.index = index;
     membersDeleteObject.index = index;
 
