@@ -10,10 +10,10 @@ const inputHidden = inputHiddens[0];
 const inputTextObject = document.getElementsByName('input-text')[0];
 
 
-inputTextObject.value = nameText;
+// inputTextObject.value = nameText;
 
-inputTextObject.focus();
-inputTextObject.blur();
+// inputTextObject.focus();
+// inputTextObject.blur();
 
 // const members = [];
 const membersGet = sessionStorage.getItem('members');
@@ -26,10 +26,16 @@ const membersSet = function(){
 };
 
 const membersCreate = function(form) {
-  const inputTextObject = form['input-text'];
-  members.push(inputTextObject.value);
+  const memberNameObject = form['member-name'];
+  const memberAgeObject = form['member-age'];
+  members.push({
+    name: memberNameObject.value,
+    age: memberAgeObject.value
+  });
+  memberNameObject.value = '';
+  memberAgeObject.value = '';
+
   membersSet();
-  inputTextObject.value = '';
   return membersRead();
 };
 
