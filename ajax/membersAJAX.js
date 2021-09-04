@@ -39,9 +39,9 @@ const membersCreate = function(form) {
 
 
 const membersRead = function() {
-  const successFunction = function(xhrObject) {
-    const membersLogical = JSON.parse(xhrObject.responseText);
-    const members = membersLogical.members;
+  const successFunction = function(reponse) {
+    // const membersLogical = JSON.parse(xhrObject.responseText);
+    const members = reponse.data.members;
     const tagDivParent = document.getElementById('tag-div-parent');
     const tagDivChild = document.getElementById('tag-div-child');
     tagDivParent.innerHTML = '';
@@ -61,7 +61,13 @@ const membersRead = function() {
   };
 
 
-  ajax('GET','http://localhost:3100/api/v1/members', undefined, successFunction);
+  // ajax('GET','http://localhost:3100/api/v1/members', undefined, successFunction);
+  axios.get('http://localhost:3100/api/v1/members')
+  .then(successFunction)
+  .catch(function (error) {
+    // handle error
+    console.log(error);
+  });
 };
 
 
