@@ -73,17 +73,15 @@ const membersDelete = function(index) {
 
 
 const membersUpdate = function(index) {
+  const url = 'http://localhost:3100/api/v1/members/' + index;
   const name = document.getElementsByName('members-name')[index].value;
   const age = document.getElementsByName('members-age')[index].value;
-  const memberUpdate = {
-    index: index,
-    member: {
-      name: name,
-      age: age
-    }
-  };
+  const member = {
+    name: name,
+    age: age
+  }
 
-  ajax('PATCH', 'http://localhost:3100/api/v1/members', memberUpdate, membersRead)
+  ajax('PATCH', url, member, membersRead)
 };
 
 
