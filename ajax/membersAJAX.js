@@ -29,12 +29,17 @@ const membersCreate = function(form) {
     name: memberNameObject.value,
     age: memberAgeObject.value
   };
-  const successFunction = function() {
+  // ajax('POST', 'http://localhost:3100/api/v1/members', member, successFunction);
+  axios.post('http://localhost:3100/api/v1/members', member)
+  .then(function(reponse) {
     memberNameObject.value = '';
     memberAgeObject.value = '';
     membersRead();
-  }
-  ajax('POST', 'http://localhost:3100/api/v1/members', member, successFunction);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+
 };
 
 
